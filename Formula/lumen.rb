@@ -1,16 +1,17 @@
 class Lumen < Formula
   desc "macOS log reviewer with color rendering and large file support"
   homepage "https://github.com/emersonding/lumen-log-viewer"
-  url "https://github.com/emersonding/lumen-log-viewer/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "f6b3de1df5fcfa72267a6a389042290bdf32024be3f300c9bf4a8d0eff7b7f46"
+  url "https://github.com/emersonding/lumen-log-viewer/releases/download/v2.0.0/lumen-2.0.0-arm64.tar.gz"
+  sha256 "8a8ad8bafd3bfd14bfc57d224deb388dc96e054a2efd7b51e90f4f554259ec93"
   license "MIT"
+  version "2.0.0"
 
   depends_on :macos
   depends_on macos: :sonoma
+  depends_on arch: :arm64
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
-    bin.install ".build/release/Lumen" => "lumen"
+    bin.install "lumen"
   end
 
   def caveats
