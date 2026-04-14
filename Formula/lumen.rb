@@ -10,31 +10,16 @@ class Lumen < Formula
 
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
-
-    # Create .app bundle
-    app_dir = prefix/"Lumen.app/Contents"
-    (app_dir/"MacOS").install ".build/release/Lumen"
-    app_dir.install "Info.plist"
-    if File.exist?("Sources/Resources/AppIcon.icns")
-      (app_dir/"Resources").mkpath
-      (app_dir/"Resources").install "Sources/Resources/AppIcon.icns"
-    end
-
-    # Also install the bare binary for CLI usage
     bin.install ".build/release/Lumen" => "lumen"
-  end
-
-  def post_install
-    system "codesign", "--force", "--deep", "--sign", "-", prefix/"Lumen.app"
   end
 
   def caveats
     <<~EOS
-      Lumen.app is installed at:
-        #{prefix}/Lumen.app
+      Run the GUI log viewer from the terminal:
+        lumen
 
-      To add to Applications:
-        ln -sf #{prefix}/Lumen.app /Applications/Lumen.app
+      Or open a log file directly:
+        lumen /path/to/file.log
     EOS
   end
 
