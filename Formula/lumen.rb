@@ -1,10 +1,10 @@
 class Lumen < Formula
   desc "macOS log reviewer with color rendering and large file support"
   homepage "https://github.com/emersonding/lumen-log-viewer"
-  url "https://github.com/emersonding/lumen-log-viewer/releases/download/v2.2.0/lumen-2.2.0-arm64.tar.gz"
-  sha256 "28f6a97bdbfb87f252885ca0a41d5e8dff9d0227b73362c3cf6714db214dd819"
+  url "https://github.com/emersonding/lumen-log-viewer/releases/download/v2.4.0/lumen-2.4.0-arm64.tar.gz"
+  sha256 "94629ffe3574459367dcb491d1b23f5d1891f92dd412c13bfa81689a62da116f"
   license "MIT"
-  version "2.2.0"
+  version "2.4.0"
 
   depends_on :macos
   depends_on macos: :sonoma
